@@ -1,4 +1,9 @@
+import React from 'react';
 import { TabNavigator } from 'react-navigation';
+import { Provider } from 'react-redux';
+import { View } from 'react-native';
+
+import store from 'common/store/store';
 
 import Top from 'top/screens/top';
 import New from 'new/screens/new';
