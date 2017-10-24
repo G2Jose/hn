@@ -1,17 +1,39 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { TabNavigator } from 'react-navigation';
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
-    );
+import Top from 'top/screens/top';
+import New from 'new/screens/new';
+import Show from 'show/screens/show';
+import Ask from 'ask/screens/ask';
+import Jobs from 'jobs/screens/jobs';
+
+const App = TabNavigator(
+  {
+    Top: {
+      screen: Top,
+    },
+    New: {
+      screen: New,
+    },
+    Show: {
+      screen: Show,
+    },
+    Ask: {
+      screen: Ask,
+    },
+    Jobs: {
+      screen: Jobs,
+    },
+  },
+  {
+    tabBarPosition: 'bottom',
+    animationEnabled: true,
+    tabBarOptions: {
+      activeTintColor: '#e91e63',
+    },
   }
-}
+);
 
 const styles = StyleSheet.create({
   container: {
@@ -21,3 +43,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default App;
