@@ -4,6 +4,9 @@ module.exports = {
     'plugin:react/recommended',
     'airbnb',
     'prettier',
+    'prettier/flowtype',
+    'prettier/react',
+    'prettier/standard',
   ],
   rules: {},
   env: {
@@ -34,6 +37,7 @@ module.exports = {
     'react/jsx-filename-extension': 0,
     'react/prefer-stateless-function': 0,
     'import/prefer-default-export': 0,
+    'import/first': 0,
   },
   settings: {
     'import/resolver': {
