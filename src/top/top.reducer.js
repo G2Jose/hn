@@ -19,7 +19,7 @@ export default handleActions(
       });
     },
   },
-  new Array(20).fill({
+  new Array(100).fill({
     _loaded: false,
     _loading: true,
   })

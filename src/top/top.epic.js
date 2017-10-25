@@ -9,7 +9,7 @@ const fetchTopStoriesEpic = action$ =>
         `https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty`
       )
       .mergeMap(arrayOfIds => Observable.from(arrayOfIds))
-      .take(20)
+      .take(100)
       .mergeMap(id =>
         ajax.getJSON(
           `https://hacker-news.firebaseio.com/v0/item/${id}.json?print=pretty`
