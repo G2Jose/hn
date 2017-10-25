@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { fetchTopStories, receivedTopStory } from 'top/top.actions';
 
 const fetchTopStoriesEpic = action$ =>
-  action$.ofType(fetchTopStories().type).mergeMap(action =>
+  action$.ofType(fetchTopStories().type).switchMap(() =>
     ajax
       .getJSON(
         `https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty`
