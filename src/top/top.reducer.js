@@ -1,22 +1,18 @@
 import { handleActions } from 'redux-actions';
 
-import { receivedTopStories, receivedTopStory } from 'top/top.actions';
+import { receivedTopStory, fetchTopStories } from 'top/top.actions';
 
 export default handleActions(
   {
-    [receivedTopStories().type](state, action) {
-      return [...action.payload].map(item => ({
-        ...item,
-        _loaded: true,
-        _loading: false,
-      }));
-    },
     [receivedTopStory().type](state, action) {
       const { item, index } = action.payload;
       return state.map((_item, _index) => {
         if (_index !== index) return _item;
         return item;
       });
+    },
+    [fetchTopStories().type](state) {
+      return state.map(() => ({ _loading: true, _loaded: false }));
     },
   },
   new Array(100).fill({
