@@ -1,6 +1,6 @@
 import { handleActions } from 'redux-actions';
 
-import { receivedTopStories } from 'top/top.actions';
+import { receivedTopStories, receivedTopStory } from 'top/top.actions';
 
 export default handleActions(
   {
@@ -10,6 +10,13 @@ export default handleActions(
         _loaded: true,
         _loading: false,
       }));
+    },
+    [receivedTopStory().type](state, action) {
+      const { item, index } = action.payload;
+      return state.map((_item, _index) => {
+        if (_index !== index) return _item;
+        return item;
+      });
     },
   },
   new Array(500).fill({

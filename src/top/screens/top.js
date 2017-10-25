@@ -17,6 +17,7 @@ class Top extends React.Component {
         <FlatList
           data={this.props.topStories}
           renderItem={({ item }) => <Headline {...item} />}
+          keyExtractor={(item, index) => index}
         />
       </View>
     );
