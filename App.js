@@ -1,7 +1,8 @@
 import React from 'react';
 import { TabNavigator } from 'react-navigation';
 import { Provider } from 'react-redux';
-import { View } from 'react-native';
+import { StatusBar, View } from 'react-native';
+import { Constants } from 'expo';
 import 'rxjs';
 
 import store from 'common/store/store';
@@ -16,7 +17,7 @@ XMLHttpRequest = GLOBAL.originalXMLHttpRequest
   ? GLOBAL.originalXMLHttpRequest
   : GLOBAL.XMLHttpRequest;
 
-const App = TabNavigator(
+const Navigation = TabNavigator(
   {
     Top: {
       screen: Top,
@@ -41,6 +42,19 @@ const App = TabNavigator(
       activeTintColor: '#e91e63',
     },
   }
+);
+
+const App = () => (
+  <View
+    style={{
+      flex: 1,
+      flexDirection: 'row',
+      paddingTop: Constants.statusBarHeight,
+    }}
+  >
+    <StatusBar backgroundColor="blue" barStyle="dark-content" />
+    <Navigation />
+  </View>
 );
 
 const ReduxApp = () => (

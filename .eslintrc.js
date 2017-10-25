@@ -38,6 +38,7 @@ module.exports = {
     'react/prefer-stateless-function': 0,
     'import/prefer-default-export': 0,
     'import/first': 0,
+    'no-use-before-define': 0,
   },
   settings: {
     'import/resolver': {
