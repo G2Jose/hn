@@ -1,5 +1,6 @@
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { Observable } from 'rxjs';
+import { numStoriesToDisplay } from 'common/constants';
 
 const epicCreator = (
   actionToListenFor,
@@ -11,7 +12,7 @@ const epicCreator = (
     ajax
       .getJSON(urlToFetchIds)
       .mergeMap(arrayOfIds => Observable.from(arrayOfIds))
-      .take(50)
+      .take(numStoriesToDisplay)
       .mergeMap(id => ajax.getJSON(urlCreator(id)))
       .map((item, index) => actionToDispatch({ item, index }))
   );

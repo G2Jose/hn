@@ -1,6 +1,7 @@
 import { handleActions } from 'redux-actions';
 
 import { receivedTopStory, fetchTopStories } from 'top/top.actions';
+import { numStoriesToDisplay } from 'common/constants';
 
 export default handleActions(
   {
@@ -15,7 +16,7 @@ export default handleActions(
       return state.map(() => ({ _loading: true, _loaded: false }));
     },
   },
-  new Array(100).fill({
+  new Array(numStoriesToDisplay).fill({
     _loaded: false,
     _loading: true,
   })
