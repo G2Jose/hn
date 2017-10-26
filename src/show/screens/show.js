@@ -10,7 +10,7 @@ const Show = props => <Stories {...props} />;
 
 Show.navigationOptions = {
   tabBarLabel: 'Show',
-  tabBarIcon: () => <Icon name="play" type="font-awesome" />,
+  tabBarIcon: () => <Icon name="tv" type="font-awesome" />,
 };
 
 const mapStateToProps = state => ({
