@@ -1,16 +1,26 @@
 import React from 'react';
-import { View } from 'react-native';
+import { connect } from 'react-redux';
 import { Icon } from 'react-native-elements';
 
-class Show extends React.Component {
-  render() {
-    return <View />;
-  }
-}
+import Stories from 'common/components/stories';
+
+import { fetchShowStories } from 'show/show.actions';
+
+const Show = props => <Stories {...props} />;
 
 Show.navigationOptions = {
   tabBarLabel: 'Show',
   tabBarIcon: () => <Icon name="play" type="font-awesome" />,
 };
 
-export default Show;
+const mapStateToProps = state => ({
+  stories: state.showStories,
+});
+
+const mapDispatchToProps = dispatch => ({
+  fetchStories: () => {
+    dispatch(fetchShowStories());
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Show);
