@@ -11,7 +11,7 @@ const epicCreator = (
     ajax
       .getJSON(urlToFetchIds)
       .mergeMap(arrayOfIds => Observable.from(arrayOfIds))
-      .take(10)
+      .take(50)
       .mergeMap(id => ajax.getJSON(urlCreator(id)))
       .map((item, index) => actionToDispatch({ item, index }))
   );

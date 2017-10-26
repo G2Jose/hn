@@ -1,16 +1,26 @@
 import React from 'react';
-import { View } from 'react-native';
+import { connect } from 'react-redux';
 import { Icon } from 'react-native-elements';
 
-class New extends React.Component {
-  render() {
-    return <View />;
-  }
-}
+import Stories from 'common/components/stories';
+
+import { fetchNewStories } from 'new/new.actions';
+
+const New = props => <Stories {...props} />;
 
 New.navigationOptions = {
   tabBarLabel: 'New',
   tabBarIcon: () => <Icon name="newspaper-o" type="font-awesome" />,
 };
 
-export default New;
+const mapStateToProps = state => ({
+  stories: state.newStories,
+});
+
+const mapDispatchToProps = dispatch => ({
+  fetchStories: () => {
+    dispatch(fetchNewStories());
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(New);
