@@ -5,7 +5,7 @@ export const askStoriesUrl =
 export const showStoriesUrl =
   'https://hacker-news.firebaseio.com/v0/showstories.json?print=pretty';
 export const newStoriesUrl =
-  'https://hacker-news.firebaseio.com/v0/showstories.json?print=pretty';
+  'https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty';
 
 export const getItemUrl = id =>
   `https://hacker-news.firebaseio.com/v0/item/${id}.json?print=pretty`;
