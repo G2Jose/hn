@@ -42,6 +42,16 @@ const Navigation = TabNavigator(
     tabBarOptions: {
       activeTintColor: '#000000',
       activeBackgroundColor: '#FF6701',
+      showIcon: true,
+      labelStyle: {
+        color: 'black',
+      },
+      style: {
+        backgroundColor: '#F7F7F7',
+      },
+      indicatorStyle: {
+        backgroundColor: '#FF6701',
+      },
     },
   }
 );
