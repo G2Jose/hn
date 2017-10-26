@@ -7,7 +7,7 @@ const Headline = ({ _loading, title, by, score, descendants }) => {
   if (!_loading) {
     return (
       <View style={styles.container}>
-        <Text>{title}</Text>
+        <Text style={styles.headlineText}>{title}</Text>
         <View style={styles.metaRow}>
           <Text style={styles.metaText}>{score} pts</Text>
           <Separator />
@@ -40,8 +40,12 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginRight: 10,
   },
+  headlineText: {
+    fontSize: 15,
+    fontWeight: 'bold',
+  },
   loadingTitle: {
-    backgroundColor: 'grey',
+    backgroundColor: '#999999',
     height: 17,
     marginTop: 3,
     marginBottom: 3,
@@ -54,7 +58,7 @@ const styles = StyleSheet.create({
     color: 'grey',
   },
   metaTextLoading: {
-    backgroundColor: 'grey',
+    backgroundColor: '#999999',
     height: 17,
     width: 75,
   },

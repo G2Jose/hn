@@ -9,7 +9,7 @@ const epicMiddleware = createEpicMiddleware(rootEpic);
 
 const store = createStore(
   rootReducer,
-  composeWithDevTools(applyMiddleware(epicMiddleware))
+  composeWithDevTools({ maxAge: 500 })(applyMiddleware(epicMiddleware))
 );
 
 export default store;

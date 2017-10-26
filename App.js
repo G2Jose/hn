@@ -39,7 +39,8 @@ const Navigation = TabNavigator(
     tabBarPosition: 'bottom',
     animationEnabled: true,
     tabBarOptions: {
-      activeTintColor: '#e91e63',
+      activeTintColor: '#000000',
+      activeBackgroundColor: '#FF6701',
     },
   }
 );
@@ -49,10 +50,11 @@ const App = () => (
     style={{
       flex: 1,
       flexDirection: 'row',
+      backgroundColor: '#F6F6EF',
       paddingTop: Constants.statusBarHeight,
     }}
   >
-    <StatusBar backgroundColor="blue" barStyle="dark-content" />
+    <StatusBar backgroundColor="orange" barStyle="dark-content" />
     <Navigation />
   </View>
 );

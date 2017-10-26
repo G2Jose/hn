@@ -1,21 +1,12 @@
-import { ajax } from 'rxjs/observable/dom/ajax';
-import { Observable } from 'rxjs';
+import epicCreator from 'stories/stories.epicCreator';
 import { fetchTopStories, receivedTopStory } from 'top/top.actions';
+import { topStoriesUrl, getItemUrl } from 'common/api/urls.js';
 
-const fetchTopStoriesEpic = action$ =>
-  action$.ofType(fetchTopStories().type).switchMap(() =>
-    ajax
-      .getJSON(
-        `https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty`
-      )
-      .mergeMap(arrayOfIds => Observable.from(arrayOfIds))
-      .take(100)
-      .mergeMap(id =>
-        ajax.getJSON(
-          `https://hacker-news.firebaseio.com/v0/item/${id}.json?print=pretty`
-        )
-      )
-      .map((item, index) => receivedTopStory({ item, index }))
-  );
+const fetchTopStoriesEpic = epicCreator(
+  fetchTopStories,
+  topStoriesUrl,
+  getItemUrl,
+  receivedTopStory
+);
 
 export default fetchTopStoriesEpic;
