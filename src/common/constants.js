@@ -1,1 +1,1 @@
-export const numStoriesToDisplay = 50;
+export const numStoriesToDisplay = 30;
