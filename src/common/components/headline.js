@@ -1,21 +1,23 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
 
 const Separator = () => <Text style={styles.metaText}> | </Text>;
 
-const Headline = ({ _loading, title, by, score, descendants }) => {
+const Headline = ({ _loading, title, by, score, descendants, viewDetails }) => {
   if (!_loading) {
     return (
-      <View style={styles.container}>
-        <Text style={styles.headlineText}>{title}</Text>
-        <View style={styles.metaRow}>
-          <Text style={styles.metaText}>{score} pts</Text>
-          <Separator />
-          <Text style={styles.metaText}>{descendants || 0} comments</Text>
-          <Separator />
-          <Text style={styles.metaText}>by {by}</Text>
+      <TouchableOpacity onPress={viewDetails}>
+        <View style={styles.container} onPress={viewDetails}>
+          <Text style={styles.headlineText}>{title}</Text>
+          <View style={styles.metaRow}>
+            <Text style={styles.metaText}>{score} pts</Text>
+            <Separator />
+            <Text style={styles.metaText}>{descendants || 0} comments</Text>
+            <Separator />
+            <Text style={styles.metaText}>by {by}</Text>
+          </View>
         </View>
-      </View>
+      </TouchableOpacity>
     );
   }
   return (

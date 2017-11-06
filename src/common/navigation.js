@@ -17,8 +17,8 @@ export const mapNavigationStateParamsToProps = SomeComponent => {
 export const mapScreenPropsToProps = SomeComponent => {
   class WrappedComponent extends React.Component {
     render() {
-      const screenProps = this.props;
-      return <SomeComponent {...screenProps.screenProps} />;
+      const { screenProps, ...otherProps } = this.props;
+      return <SomeComponent {...screenProps} {...otherProps} />;
     }
   }
 

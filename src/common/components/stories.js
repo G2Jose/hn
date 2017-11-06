@@ -23,6 +23,7 @@ class Headlines extends React.Component {
   }
 
   render() {
+    const { navigation: { navigate } } = this.props;
     return (
       <View style={styles.stories}>
         <FlatList
@@ -33,7 +34,9 @@ class Headlines extends React.Component {
             />
           }
           data={this.props.stories}
-          renderItem={({ item }) => <Headline {...item} />}
+          renderItem={({ item }) => (
+            <Headline {...item} viewDetails={() => navigate('Details')} />
+          )}
           keyExtractor={(item, index) => index}
         />
       </View>
@@ -50,7 +53,7 @@ const Stories = StackNavigator(
       screen: Story,
     },
   },
-  { headerMode: 'none' }
+  { headerMode: 'none', initialRouteName: 'Home' }
 );
 
 export default Stories;
