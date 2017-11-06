@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   headlineText: {
-    fontSize: 15,
+    fontSize: 17,
     fontWeight: 'bold',
   },
   loadingTitle: {

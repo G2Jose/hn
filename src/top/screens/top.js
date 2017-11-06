@@ -6,7 +6,7 @@ import Stories from 'common/components/stories';
 
 import { fetchTopStories } from 'top/top.actions';
 
-const Top = props => <Stories {...props} />;
+const Top = props => <Stories screenProps={props} />;
 
 Top.navigationOptions = {
   tabBarLabel: 'Top',

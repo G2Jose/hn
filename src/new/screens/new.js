@@ -6,7 +6,7 @@ import Stories from 'common/components/stories';
 
 import { fetchNewStories } from 'new/new.actions';
 
-const New = props => <Stories {...props} />;
+const New = props => <Stories screenProps={props} />;
 
 New.navigationOptions = {
   tabBarLabel: 'New',

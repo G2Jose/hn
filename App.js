@@ -13,6 +13,7 @@ import Show from 'show/screens/show';
 import Ask from 'ask/screens/ask';
 import Jobs from 'jobs/screens/jobs';
 
+// eslint-disable-next-line no-global-assign
 XMLHttpRequest = GLOBAL.originalXMLHttpRequest
   ? GLOBAL.originalXMLHttpRequest
   : GLOBAL.XMLHttpRequest;

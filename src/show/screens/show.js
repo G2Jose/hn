@@ -6,7 +6,7 @@ import Stories from 'common/components/stories';
 
 import { fetchShowStories } from 'show/show.actions';
 
-const Show = props => <Stories {...props} />;
+const Show = props => <Stories screenProps={props} />;
 
 Show.navigationOptions = {
   tabBarLabel: 'Show',
